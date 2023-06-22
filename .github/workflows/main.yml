@@ -1,0 +1,19 @@
+name: Main CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: install
+      run: pip install selenium webdriver-manager
+    - name: run-sample
+      run: python3 sample.py
