@@ -20,4 +20,4 @@ jobs:
     - name: chrome-version
       run: google-chrome --version
     - name: run-sample
-      run: python3 sample.py
+      run: python3 sample-chrome.py
