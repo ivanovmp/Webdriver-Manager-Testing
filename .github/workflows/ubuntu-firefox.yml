@@ -17,14 +17,12 @@ jobs:
       run: sudo snap remove firefox
     - name: uninstall-firefox
       run: sudo remove firefox
-    - name: uninstall-firefox-snap
-      run: sudo snap remove firefox
-    - name: update-apt-get
-      run: sudo apt-get update
-    - name: upgrade-apt-get
-      run: sudo apt-get upgrade
-    - name: install-libgtk
-      run: sudo apt install libgtk-3-0
+#    - name: update-apt-get
+#      run: sudo apt-get update
+#    - name: upgrade-apt-get
+#      run: sudo apt-get upgrade
+#    - name: install-libgtk
+#      run: sudo apt install libgtk-3-0
     - name: add-mozilla-source
       run: sudo add-apt-repository ppa:mozillateam/ppa
     - name: alter-firefox-package-priority
