@@ -15,6 +15,10 @@ jobs:
     - uses: actions/checkout@v3
     - name: uninstall-firefox-snap
       run: sudo snap remove firefox
+    - name: uninstall-firefox
+      run: sudo remove firefox
+    - name: uninstall-firefox-snap
+      run: sudo snap remove firefox
     - name: update-apt-get
       run: sudo apt-get update
     - name: upgrade-apt-get
@@ -26,7 +30,7 @@ jobs:
     - name: alter-firefox-package-priority
       run: sudo sh alter-firefox-package-priority.sh
     - name: install-firefox
-      run: sudo apt install firefox
+      run: sudo apt install firefox -y
     - name: install
       run: pip install selenium selenium-firefox webdriver-manager
     - name: webdriver-manager-version
