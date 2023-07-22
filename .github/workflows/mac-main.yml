@@ -14,8 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: install
-      run: pip install selenium webdriver-manager
+      run: pip3 install selenium webdriver-manager
     - name: webdriver-manager-version
-      run: pip show webdriver-manager
+      run: pip3 show webdriver-manager
     - name: run-sample
       run: python3 sample.py
