@@ -13,11 +13,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: install
+    - name: install-selenium
       run: pip install selenium webdriver-manager
     - name: webdriver-manager-version
       run: pip show webdriver-manager
-    - name: chrome-version
-      run: google-chrome --version
+    - name: install-opera
+      run: apt install opera-stable
+    - name: opera-version
+      run: opera --version
     - name: run-sample
       run: python3 sample-opera.py
