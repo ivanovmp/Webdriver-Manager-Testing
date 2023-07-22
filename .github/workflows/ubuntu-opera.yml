@@ -15,10 +15,18 @@ jobs:
     - uses: actions/checkout@v3
     - name: install-selenium
       run: pip install selenium webdriver-manager
+    - name: upgrade-pip
+      run: pip install --upgrade pip
     - name: webdriver-manager-version
       run: pip show webdriver-manager
+    - name: add-opera-pointer
+      run: sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
+    - name: install-opera-key
+      run: wget http://deb.opera.com/archive.key -q -O - | sudo apt-key add -
+    - name: update-apt-get
+      run: sudo apt-get update
     - name: install-opera
-      run: sudo apt-get install opera-stable
+      run: sudo apt-get install opera
     - name: opera-version
       run: opera --version
     - name: run-sample
