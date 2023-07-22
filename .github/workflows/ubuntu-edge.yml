@@ -1,0 +1,27 @@
+name: Ubuntu Edge CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: update-apt-get
+      run: sudo apt-get update
+    - name: upgrade-apt-get
+      run: sudo apt-get upgrade
+    - name: install
+      run: pip install selenium webdriver-manager
+    - name: webdriver-manager-version
+      run: pip show webdriver-manager
+    - name: edge-version
+      run: /usr/bin/microsoft-edge --version
+    - name: run-sample
+      run: python3 sample-edge.py
