@@ -16,7 +16,7 @@ jobs:
     - name: uninstall-firefox-snap
       run: sudo snap remove firefox
     - name: uninstall-firefox
-      run: sudo remove firefox
+      run: sudo apt remove firefox
 #    - name: update-apt-get
 #      run: sudo apt-get update
 #    - name: upgrade-apt-get
