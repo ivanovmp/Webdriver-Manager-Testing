@@ -9,12 +9,10 @@ on:
 jobs:
   build:
 
-    runs-on: [ubuntu-latest, x64]
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: update-apt-get
-      run: sudo apt-get update
     - name: upgrade-pip
       run: pip install --upgrade pip
     - name: install-selenium
@@ -25,8 +23,10 @@ jobs:
       run: sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
     - name: install-opera-key
       run: wget http://deb.opera.com/archive.key -q -O - | sudo apt-key add -
+    - name: update-apt-get
+      run: sudo apt-get update
     - name: install-opera
-      run: sudo apt-get install opera-stable
+      run: sudo apt-get install opera
     - name: opera-version
       run: opera --version
     - name: run-sample
