@@ -6,4 +6,8 @@ from webdriver_manager.firefox import GeckoDriverManager
 
 opts = webdriver.FirefoxOptions()
 opts.add_argument("--headless")
-driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=opts)
+print("Created options")
+installation = GeckoDriverManager().install()
+print("Installed")
+driver = webdriver.Firefox(service=FirefoxService(installation), options=opts)
+print("Created the driver")
