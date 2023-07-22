@@ -30,7 +30,7 @@ jobs:
     - name: install-firefox
       run: sudo apt install firefox -y
     - name: install
-      run: pip install selenium selenium-firefox webdriver-manager
+      run: pip install selenium-firefox webdriver-manager
     - name: webdriver-manager-version
       run: pip show webdriver-manager
     - name: firefox-version
