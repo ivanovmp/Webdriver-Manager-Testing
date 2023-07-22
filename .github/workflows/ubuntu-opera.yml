@@ -19,14 +19,22 @@ jobs:
       run: pip install selenium webdriver-manager
     - name: webdriver-manager-version
       run: pip show webdriver-manager
-    - name: add-opera-pointer
-      run: sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
-    - name: install-opera-key
-      run: wget http://deb.opera.com/archive.key -q -O - | sudo apt-key add -
     - name: update-apt-get
       run: sudo apt-get update
+    - name: upgrade-apt-get
+      run: sudo apt-get upgrade
+    - name: install-dependencies
+      run: sudo apt install software-properties-common apt-transport-https wget ca-certificates gnupg2
+    - name: add-opera-public-gpg-key
+      run: wget -O- https://deb.opera.com/archive.key | sudo gpg --dearmor | sudo tee /usr/share/keyrings/opera.gpg
+    - name: add-opera-repository
+      run: echo deb [arch=amd64 signed-by=/usr/share/keyrings/opera.gpg] https://deb.opera.com/opera-stable/ stable non-free | sudo tee /etc/apt/sources.list.d/opera.list
+    - name: add-opera-pointer
+      run: sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
+    - name: update-apt
+      run: sudo apt update
     - name: install-opera
-      run: sudo apt-get install opera
+      run: sudo apt-get install opera-stable
     - name: opera-version
       run: opera --version
     - name: run-sample
