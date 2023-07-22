@@ -1,4 +1,4 @@
-name: Main CI
+name: Ubuntu Main CI
 
 on:
   push:
