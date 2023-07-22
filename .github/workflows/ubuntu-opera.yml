@@ -18,7 +18,7 @@ jobs:
     - name: webdriver-manager-version
       run: pip show webdriver-manager
     - name: install-opera
-      run: sudo apt install opera-stable
+      run: sudo apt-get install opera-stable
     - name: opera-version
       run: opera --version
     - name: run-sample
