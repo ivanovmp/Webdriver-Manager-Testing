@@ -18,4 +18,4 @@ jobs:
     - name: webdriver-manager-version
       run: pip3 show webdriver-manager
     - name: run-sample
-      run: python3 sample.py
+      run: python3 sample-chrome.py
