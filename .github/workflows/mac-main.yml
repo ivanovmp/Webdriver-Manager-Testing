@@ -1,0 +1,23 @@
+name: MacOS CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: install
+      run: pip install selenium webdriver-manager
+    - name: webdriver-manager-version
+      run: pip show webdriver-manager
+    - name: chrome-version
+      run: google-chrome --version
+    - name: run-sample
+      run: python3 sample.py
